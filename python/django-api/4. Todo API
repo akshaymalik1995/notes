@@ -1,0 +1,9 @@
+# Todo API
+
+We will build a Todo API back-end and then connect it with a React front-end.
+
+Since we are making a dedicated back-end and front-end we will divide our code into a similar structure. Within our existing code directory, we will create a todo directory containing our back-end Django Python code and our front-end React JavaScript code.
+
+
+
+
