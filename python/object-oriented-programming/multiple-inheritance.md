@@ -5,7 +5,7 @@ In multiple inheritance, the features of all the base classes are inherited into
 
 ```
 class Base1:
-    pass
+	pass
 
 class Base2:
 	pass
