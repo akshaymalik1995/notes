@@ -68,3 +68,180 @@ server.use(express.static(path.join(__dirname, 'public')))
 
 
 
+![image](https://user-images.githubusercontent.com/55041489/123532191-cba23100-d728-11eb-832d-71fe343819cb.png)
+
+We can also serve javascript and css files accordingly. We just have to put the in the `public` folder.
+
+
+### Creating An API
+
+
+```js
+const members = [
+    {name : "Akshay"},
+    {name : "Rahul"},
+    {name : "Anubhav"},
+    {name : "Abhi"},
+]
+
+
+// Set Routes
+server.get('/api/members', (request, response) => response.json(members))
+
+```
+
+![image](https://user-images.githubusercontent.com/55041489/123532750-89c7b980-d72d-11eb-933a-970f1a6699a2.png)
+
+
+
+**Putting our data in a seperate file**
+
+```js
+// Members.js
+const members = [
+    {name : "Akshay"},
+    {name : "Rahul"},
+    {name : "Anubhav"},
+    {name : "Abhi"},
+]
+
+module.exports = members
+```
+
+Import it: `const members = require('./Members')`
+
+**Creating a Middleware**
+
+```js
+// Middleware
+
+const logger = (request, response, next) => {
+    console.log(`${request.protocol}://${request.get('host')}${request.originalUrl}`)
+    next()
+}
+
+// Init Middleware
+
+server.use(logger)
+```
+
+Every time a request is sent, the middleware function will run.
+
+![image](https://user-images.githubusercontent.com/55041489/123532917-145ce880-d72f-11eb-844a-3944efdbc8e7.png)
+
+
+**GETTING A SINGLE MEMBER**
+
+```js
+// Single Member
+
+server.get("/api/members/:id", (request, response) => {
+    const id = request.params.id
+    const [data] = members.filter(member => member.id === Number(id))
+    if (data) {
+        response.json(data)
+    }
+    else {
+        response.status(400).json({msg : `No member with the id ${id}`})
+    }
+   
+})
+```
+
+![image](https://user-images.githubusercontent.com/55041489/123533202-13c55180-d731-11eb-9972-1dedb62fba8c.png)
+
+![image](https://user-images.githubusercontent.com/55041489/123533220-293a7b80-d731-11eb-94eb-86368273b960.png)
+
+
+### Separate Folder for Routes
+
+```js
+// routes/api/memners.js
+
+const express = require('express')
+const router = express.Router()
+// Import data
+const members = require('../../Members')
+// Get all members
+router.get('/', (request, response) => {
+    response.json(members)
+})
+
+// Single Member
+
+router.get("/:id", (request, response) => {
+    const id = request.params.id
+    const [data] = members.filter(member => member.id === Number(id))
+    if (data) {
+        response.json(data)
+    }
+    else {
+        response.status(400).json({msg : `No member with the id ${id}`})
+    }
+   
+})
+
+module.exports = router
+
+
+
+```
+
+
+
+```js
+// index.js
+
+// Set Routes
+server.use('/api/members', require('./routes/api/members'))
+```
+
+Create a Member
+
+```js
+// routes/api/memners.js
+// Create Member
+router.post('/', (request, respond) => {
+    response.send(request.body)
+})
+```
+
+```js
+// index.js
+// Body Parser Middleware
+
+server.use(express.json())
+server.use(express.urlencoded({extended : false}))
+
+```
+
+Create id with uuid
+
+`npm i uuid`
+
+
+```js
+// routes/api/memners.js
+// Create Member
+router.post('/', (request, response) => {
+    const newMember = {
+        id: uuid.v4(),
+        name: request.body.name
+    }
+
+    if (!newMember.name) {
+        response.status(400).json({msg : 'Please include a name'})
+    }
+
+    members.push(newMember)
+
+    response.json(members)
+})
+})
+```
+
+![image](https://user-images.githubusercontent.com/55041489/123533610-62c0b600-d734-11eb-8e29-be5a7d1e8301.png)
+
+
+
+
