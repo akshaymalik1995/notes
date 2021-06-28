@@ -85,5 +85,64 @@ print(sort(arr))
 
 ## Binary Search
 
+**Time taken to execute a function**
+
+```python
+import time
+def SUM(n):
+    a = 0
+    for x in range(n):
+        a = a + x
+    return a
+
+a = time.time()
+print(SUM(10000))
+b  =  time.time()
+print(b-a)
+
+```
+**HOW TO FIND THE MID POINT OF AN ARRAY**
+
+```python
+L = [1, 20, 25, 29, 30, 31]
+# mid point is 
+begin = 0
+end = len(L) - 1
+print(L[(begin + end) // 2])
+```
 
 
+
+**Recursive Binary Search**
+
+
+```python
+# Writing a recursive function for binary search
+
+def binarySearch(Array, item, begin, end):
+    mid = (begin + end) // 2
+    if end - begin < 0:
+        return "Number does not exist"
+    elif item > Array[mid]:
+        begin = mid + 1
+        return binarySearch(Array, item, begin, end)
+    elif item < Array[mid]:
+        end = mid - 1
+        return binarySearch(Array, item, begin, end)
+    elif item == Array[mid]:
+        return mid
+    
+import time
+array = range(100000000)
+a = time.time()
+print(binarySearch(array, 10000000000000, 0, len(array) - 1))
+b = time.time()
+print(b-a)
+```
+
+OUTPUT:
+
+```
+Number does not exist
+3.719329833984375e-05
+```
