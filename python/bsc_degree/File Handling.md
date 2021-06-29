@@ -81,6 +81,8 @@ f = open("file.txt", "r")
 print(f.read(20))
 ```
 
+`f.readline()` will give us the first line. However, if you execute it again, it will give you the next line. It can be used in a while loop or a for loop.
+
 ## Create a file using write() mode
 
 ```python
@@ -108,7 +110,7 @@ f.close()
 
 `lstrip()` : This function strips each line of a file off space from the left-hand side
 
-`splitlines()`
+`splitlines()` :
 
 ```python
 f = open("file.txt", "r+")
@@ -123,7 +125,7 @@ OUTPUT:
 
 ```
 
-`split()`
+`split()` :
 
 ```python
 f = open("file.txt", "r+")
@@ -142,4 +144,79 @@ Using this method any files opened will be closed automatically after one is don
 ```python
 with open("file.txt", 'r+') as f:
     print(f.read())
+```
+
+If you get the error `UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 1006: character maps to <undefined>`, then specify the encoding as utf-8
+
+## Encrypt a Text File
+
+```python
+
+# Open the file
+f = open("file.txt", "r+", encoding="utf-8")
+# Create a list of lowercase and uppercase letters
+lower_letters = "abcdefghijklmnopqrstuvwxyz"
+upper_letters = lower_letters.upper()
+
+# Set the encryption code
+# This would mean by how many positions we want to shift a letter
+encryption_code = 3
+
+new_str = ""
+
+# Loop through all the charcaters
+for letter in f.read():
+    # check for lowercase letters
+    if letter in lower_letters:
+        new_letter = lower_letters[(lower_letters.index(letter) + encryption_code) % 26]
+        new_str = new_str + new_letter
+    # check for uppercase letters
+    elif letter in upper_letters:
+        new_letter = upper_letters[(upper_letters.index(letter) + encryption_code) % 26]
+        new_str = new_str + new_letter
+    else:
+        new_str = new_str + letter
+
+# Create a new file
+new_file = open("cryptd_file.txt", "w")
+new_file.write(new_str)
+new_file.close()  
+
+```
+
+## Decrypt a text file
+
+```python
+
+# Open the file
+f = open("encrypted.txt", "r+", encoding="utf-8")
+# Create a list of lowercase and uppercase letters
+lower_letters = "abcdefghijklmnopqrstuvwxyz"
+upper_letters = lower_letters.upper()
+# Set the decryption code
+# This would mean by how many positions we want to shift a letter
+decryption_code = 3
+new_str = ""
+
+# Loop through all the charcaters
+for letter in f.read():
+    # check for lowercase letters
+    if letter in lower_letters:
+        new_letter = lower_letters[(lower_letters.index(letter) - decryption_code) % 26]
+        new_str = new_str + new_letter
+    # check for uppercase letters
+    elif letter in upper_letters:
+        new_letter = upper_letters[(upper_letters.index(letter) - decryption_code) % 26]
+        new_str = new_str + new_letter
+    else:
+        new_str = new_str + letter
+
+# Create a new file
+new_file = open("decrypted.txt", "w")
+new_file.write(new_str)
+new_file.close()
+
+        
+
+
 ```
