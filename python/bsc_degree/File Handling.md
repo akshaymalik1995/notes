@@ -220,3 +220,24 @@ new_file.close()
 
 
 ```
+
+
+## seek ()
+
+
+In python, `seek()` function is used to change the position of the File Handler to a given specific position. File handle is like a cursor, which defines from where the data has to be read or written in the file.
+
+`file.seek(20)` will move the File Handler to the 20th position.
+
+`file.tell()` returns the current position.
+
+
+Look at the `Knuth Morris Prat` Algorithm in your free time.
+
+
+
+
+
+
+
+
