@@ -205,3 +205,107 @@ So, the three possible outputs are:
 2. `False`
 3. `Error`
 
+
+# Week 2
+
+### Practice Assignment
+
+**1. Rules for Python Variables :**
+
+- It must start with a letter or the underscore character
+- It cannot start with a number
+- It can contain only alpha-numeric characters and underscores
+- Variable names are case sensitive
+
+
+**2. What will be the output?**
+
+```python
+
+x, y, z = "a" , "b" , "c"
+x = y = z
+print(x)
+
+OUTPUT:
+
+c
+```
+
+**3. Match the operators:**
+
+1. `+` : Concatenates two string
+2. `*` : Replicates same string multiples times
+3. `[]` : Character of the string using indexing
+4. `[:]` : Range slice
+5. `in` : Membership check
+6. `\` : Escape Characters
+
+
+**4. String Slicing**
+
+```python
+s = "abcdefghijklnopqrstuvwxyz"
+# The output in all cases will be : 'zwtqnkheb'
+
+print(s[-a : -len(s) : -3)
+# The step is -3, hence we will start from end
+# The value of a is 1 because we want z
+
+print(s[::-b])
+# The value of b is 3
+
+print(s[c:0:-3])
+# The value of c will either -1 , 25 or any number above it.
+
+print(s[len(s) : -d : -3])
+# The value of d will be 0 or -26 
+
+
+```
+
+### Graded Assignment
+
+
+**1. String or List Unpacking**
+
+```python
+
+a, b, c, d = "ABCD"
+a, b, c, d = ["A", "B", "C", "D"]
+print(a) # A
+print(b) # B
+print(c) # C
+print(d) # D
+```
+**2. bool()**
+
+```python
+
+print(bool(" ")) # True
+print(bool("")) # False
+print(bool(0)) # False
+print(bool(1)) # True
+print(bool([])) # False
+print(bool(False)) # False
+print(bool("False")) # True
+```
+
+
+**3. The `and` operator***
+
+```python
+
+if int(input()) > 0 and int(input()) < 0:
+  print("OK")
+  
+# Does the code always accepts two inputs?
+# No. If the condition before the 'and' returns False, the rest of the code is not evaluated.
+
+if a and b or c:
+  print("OK")
+  
+# "OK" will be printed if a is True and  one of b and c is True.
+
+```
+
+
