@@ -480,6 +480,7 @@ file.close()
 
 ```
 
+> f.readline() gives `\n` for empty lines.
 
 ```python
 # CODE - 1
@@ -493,7 +494,7 @@ file.close()
 ```
 
 
-**2. f.closed **
+**2. f.closed**
 
 ```python
 # What will this function return?
@@ -506,10 +507,67 @@ def isFileClosed():
 # In the above function, the file is not closed so it returns False
 ```
 
+**3. Append File**
+
+```python
+# What will the function appendFile() return ?
+def appendFile():
+  f = open("test.txt", "a")
+  f.writelines('777')
+  f.close()
+  f = open("test.txt", "r")
+  c = f.readlines()
+  f.close()
+  return c[6]
+# It will throw an error
+# It will append 777 in the last line of the file which is 666
+# The file still has six lines, the 6th line being 666777
+
+# f.write() would have worked in the same way
+```
+
+**4. FILE MODES AND ERRORS**
+
+1. For `f = open('test.txt', "r")`, if the file does not exist, an error occurs.
+2. For `f = open('test.txt', "w")`, if the file does not exist, a new file is created.
+3. For `f = open('test.txt', "w")`, if the file already exists, the existing file is overwritten with the new file.
+4. For `f = open('test.txt', "a)`, if the file does not exist, a new file is created.
 
 
+**5. QUESTION**
+
+```python
+# file1.txt is a file having some text and file2.txt does not exist before.
+f1 = open('file1.txt', 'r')
+f2 = open('file2.txt', 'w')
+line = ' '
+for line in f1.readlines():
+  f2.write(line.replace('\t', ' '*4).rstrip()+'\n')
+f1.close()
+f2.close()
+
+# All the tabs are not removed because replace() method only replaces the first tab.
+# All spaces at the end of the lines are removed in files2.txt
+# The number of lines in file1.txt and file2.txt are the same.
+```
+
+**6. OPEN A CSV FILE USING PANDAS**
+
+`pd.read_csv('file.csv')`
+
+**7. Pandas Commands**
+
+1. `data_df.sort_values(by = ['Total'])` : Arrange dataset data_df on the column Total in asc / desc order.
+2. `data_df['DateOfBirth'].count()` : Count non empty (non missing) values in column 'DateOfBirth'
+3. `data_df.groupby('Gender').groups` : Group score dataset on a 'Gender' column.
+4. `data_df['Total'].sum()` : 
 
 
+**8. WAYS OF GETTING THE SHAPE OF THE DATAFRAME**
+
+1. data_df.shape[0], data_df.shape[1]
+2. data_df.count().max(), len(data_df.columns)
+3. len(data_df), len(list(data_df))
 
 
-
+**9. Also Revise Week 8 from the notes you have created for it specifically**
