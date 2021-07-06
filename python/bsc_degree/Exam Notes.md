@@ -206,7 +206,7 @@ So, the three possible outputs are:
 3. `Error`
 
 
-# Week 2
+## Week 2
 
 
 
@@ -453,6 +453,57 @@ for i in range(1231, -12420, -7):
 -12420 = 1231 + (n - 1)-7
 -13551 / -7 = n - 1
 n = 1951
+```
+
+## Week 9
+
+**1. READLINE() AND READLINES()**
+
+```
+# test.txt
+111
+222
+333
+444
+555
+666
+```
+
+
+```python
+# CODE - 1
+file = open("test.txt", 'r')
+a = file.readline() # Read the first line
+b = file.readlines() # Rest the rest of the lines and put them in a list
+c = b[2] # c == 444 because b[0] == 222
+file.close()
+
+```
+
+
+```python
+# CODE - 1
+file = open("test.txt", 'r')
+d = file.readlines() # Read all the lines and put them in a list
+e = file.readline() # Since all the lines have been read,
+# it is an empty string
+f = d[0] # f == 111
+file.close()
+
+```
+
+
+**2. f.closed **
+
+```python
+# What will this function return?
+def isFileClosed():
+  f = None
+  f = open("test.txt", 'r')
+  return f.closed
+
+# f.closed checks whether the file is closed or not.
+# In the above function, the file is not closed so it returns False
 ```
 
 
