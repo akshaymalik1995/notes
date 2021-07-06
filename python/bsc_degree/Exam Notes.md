@@ -308,4 +308,38 @@ if a and b or c:
 
 ```
 
+## Week 3
+
+### Practice Assignment
+
+**1. String Formatting**
+
+```python
+x = 1.234
+print(f"{x:.2f}") # 1.23
+
+str = "T"
+print("%-4s"%str, str) # T   T
+# For any string T, print("%ns"%str) format method adds (n - len(str)) blank space to the right of T if n is a negative number and adds (n - len(str)) to the left of T if n is a positive integer.
+# n - len(str) should be greater than zero
+
+
+name = "Akshay"
+# Add five spaces before variable name
+print("%11s"%name) #     Akshay
+```
+
+**2. TIPS**
+
+1. Write the code.
+2. Do not hurry.
+3. Run the test cases.
+4. Mark the options only when you are very sure.
+
+
+
+
+
+
+
 
