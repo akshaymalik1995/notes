@@ -314,11 +314,32 @@ if a and b or c:
 
 **1. String Formatting**
 
-```python
-x = 1.234
-print(f"{x:.2f}") # 1.23
+ROUND FORMAT SPECIFIER
 
+```python
+x = 22/7
+print(f"{x:.2f}") # 3.14
+print("{0:.2f}".format(x)) # 3.14
+print("%.2f" % (x))
+```
+INDENT FORMAT SPECIFIER
+
+```python
+
+print('{:5d}'.format(1))   #     1
+print('{:5d}'.format(11))  #    11
+print('{:5d}'.format(111)) #   111
+# Here we are stating that we want minimum 5 characters
+# We cannot use {:5s}
+# However while using modulo operator, we can use both %5s and %5d
+
+```
+
+SPACES BEFORE AND AFTER THE STRING
+
+```python
 str = "T"
+# Include 3 spaces after the string
 print("%-4s"%str, str) # T   T
 # For any string T, print("%ns"%str) format method adds (n - len(str)) blank space to the right of T if n is a negative number and adds (n - len(str)) to the left of T if n is a positive integer.
 # n - len(str) should be greater than zero
@@ -327,7 +348,45 @@ print("%-4s"%str, str) # T   T
 name = "Akshay"
 # Add five spaces before variable name
 print("%11s"%name) #     Akshay
+# It means that we want minimum 11 characters
 ```
+
+ADD PADDING TO NUMBERS
+
+```python
+date = 7
+print(f"{date:02}") # 07
+print(f"{date:03}") # 007
+date = 11
+print(f"{date:03}") # 011
+```
+
+THE `SEP` ARGUMENT
+
+```python
+d = 10
+m = 5
+y = 2021
+
+print(d, m, y) # 10 5 2021
+print(d, m, y, sep="/") # 10/5/2021
+
+```
+
+PRINT USING STRING MODULO OPERATOR
+
+```python
+num = 6
+for i in range(1, 11):
+print("%d x %d = %d" % (num , i , num * i)) # 6 x 1 = 6 ...
+print(num, 'x', i, '=', num * i) # 6 x 1 = 6 ...
+print("{0} x {1} = {2}".format(num, i , num * i)) # 6 x 1 = 6 ...
+
+# For integer, we used %d
+# For float, we will use %f
+# The modulo %f prints decimal values upto 5
+```
+
 
 **2. TIPS**
 
