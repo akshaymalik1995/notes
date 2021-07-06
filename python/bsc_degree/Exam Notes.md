@@ -1,6 +1,6 @@
 ## Week 1
 
-### Activity Questions
+
 
 1. Find the last digit of `7 ** 35`?
 
@@ -107,7 +107,7 @@ It takes the user input and display the input to the console.
   ```
   
   
- ### Practice Assignment
+
  
 **1. What snipped of code will give the following output: `1 2 3 4 5 6` ?**
 
@@ -177,7 +177,7 @@ Order of precedence:
 
 
 
-### Graded Assignment
+
 
 
 **1. `False and False` returns `False`**
@@ -208,7 +208,7 @@ So, the three possible outputs are:
 
 # Week 2
 
-### Practice Assignment
+
 
 **1. Rules for Python Variables :**
 
@@ -263,7 +263,6 @@ print(s[len(s) : -d : -3])
 
 ```
 
-### Graded Assignment
 
 
 **1. String or List Unpacking**
@@ -310,7 +309,6 @@ if a and b or c:
 
 ## Week 3
 
-### Practice Assignment
 
 **1. String Formatting**
 
@@ -394,6 +392,68 @@ print("{0} x {1} = {2}".format(num, i , num * i)) # 6 x 1 = 6 ...
 2. Do not hurry.
 3. Run the test cases.
 4. Mark the options only when you are very sure.
+
+**3. CONTINUE KEYWORD**
+
+```python
+# What does the following code block print?
+for i in "we are in question one":
+  if i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u':
+    continue # skip the rest of the code
+  print(i , end='')
+  
+# OUTPUT:
+# w r n qstn n
+
+```
+
+**4. PRINT "HELLO WORLD" 10 TIMES WITHOUT USING LOOP**
+
+`print("Hello Python!\n" * 10)`
+
+**5. What is the output of : **
+
+`print(-104 % 10)` >> 6
+
+`print(-123 % 100)` >> 77
+
+`print(-123 % -100)` >> -23
+
+**6. THE BREAK STATEMENT**
+
+```python
+# How many times do the break statement get executed?
+
+for i in range(10):
+  for j in range(10):
+    break
+  break
+  
+# The break statement ends the loop
+# Since there are only two loops
+# It will be executed only two times
+
+```
+
+**7. INCOMPATIBLE INCREMENT SIZE**
+
+```python
+
+for i range(10, 0, 1):
+  print(i)
+# The print statement will not be executed due to incompatible step size
+
+
+# How many times will the print statment gets executed?
+for i in range(1231, -12420, -7):
+  print(i)
+  
+# It is an Arithmetic Progression
+
+-12420 = 1231 + (n - 1)-7
+-13551 / -7 = n - 1
+n = 1951
+```
 
 
 
