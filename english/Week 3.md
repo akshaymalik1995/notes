@@ -122,3 +122,51 @@ They are also called **connectors**.
 - Last year there was little rain, **consequently**, we did not have good harvest.
 
 
+## LEARNING SOFTENING
+
+**FORMAL vs. INFORMAL**
+
+- Give me a glass of water.
+- Please give me a glass of water.
+
+
+- Meet me at 9 in the morning.
+- Please meet with me 9 in the morning.
+
+**SOFTER VERSION**
+
+- Could we meet at 9 in the morning?
+- Could we meet at 9 in the morning, please?
+- I was wondering if we could meet at 9 in the morning.
+
+**SUGGESTIONS**
+
+- Shall I invest in mutual funds?
+    - No, you should not.
+    - I think mutual funds are not doing good these days.
+    - If I were you, I would not.
+    - If I were you, I would not think several times about it.
+
+
+**ISSUES**
+
+- Sir, I have submitted my report on accounts. Hope you liked it.
+    - You have made a mistake in calculations.
+    - You have ruined it.
+
+**SOFTENING**
+
+- You seem to have missed a few things. May I suggest a revisit?
+- It appears to me that the calcultions do not add up. Could you please take a look at it again?
+
+**REFUSAL ... SAYING NO**
+
+- Can we go for a cup of tea?
+    - I have a lot of stuff pending to take a care of.
+    - I have a lot of stuff pending to take a care of. Hope you do not mind.
+
+- Could you please bring me some storybooks on your way?
+    - I will try my best.
+    - The shop seems to have moved as I could not find it.
+    - I am not sure if there is any bookstore on my way.
+
