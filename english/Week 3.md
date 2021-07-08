@@ -122,7 +122,7 @@ They are also called **connectors**.
 - Last year there was little rain, **consequently**, we did not have good harvest.
 
 
-## LEARNING SOFTENING
+## Learning Softening
 
 **FORMAL vs. INFORMAL**
 
