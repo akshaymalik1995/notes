@@ -242,10 +242,10 @@ They are also called **connectors**.
 
 Such morphemes occur alone as words and have a meaning or fulfill a grammatical function.
 
-- **Lexical Morphemes**
+1. **Lexical Morphemes**
     - They have meaning and usually refer to a thing, quality, state or action.
     - They generally take the forms of nouns, verbs, adjectives and adverbs.
-- **Functional or Grammatical**
+2. **Functional or Grammatical**
     - They have little or no meaning on their own, but which show grammatical relationships in and between sentences.
     - Example: Prepositions, pronouns, auxiliary verbs
 
@@ -259,14 +259,14 @@ Examples:
 - "re" in reappear
 - "un" in unhappy
 
-- **Bound Roots**
+1. **Bound Roots**
     - They have lexical meaning when they are attached to other bound morphemes to form content words
     - Examples:
         - "-ceive" in receive
         - "cran-" in cranberry
     - Notice that bound roots can be prefixed or suffixed to other affixes.
 
-- **Affixes**
+2. **Affixes**
     - They are usually marginally attached to words and which change the meaning or function of these words
     - Examples:
         - "-ment" in development.
