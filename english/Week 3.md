@@ -170,3 +170,104 @@ They are also called **connectors**.
     - The shop seems to have moved as I could not find it.
     - I am not sure if there is any bookstore on my way.
 
+
+## Tense, Aspect and Mood
+
+**VERB**
+
+- Every sentence needs a verb.
+- Verbs:
+    - express an action
+    - describes an event
+    - establish a state of being
+- verbs are influenced by tense, aspect, and mood.
+- **Verb tense** refers to when the action occurred. The most common tenses are past, present, or future
+- **Verb aspect** refers to the flow of time. It addresses whether or not the action takes place in a single block of time or if the action is continuous, perfective or repeated.
+- **Verb mood** refers to the attitude of the action. Is the verb actually happening, possibly happening, or being commanded to happen?
+
+
+**MOOD**
+
+- Mood refers to the degree of necessity, obligation, or probability.
+- Mood can be expressed in any verb tense.
+- The three main moods used in English are:
+    - Indicative (used for factual/plain statements)
+        - The PM arrives tomorrow.
+    - Subjunctive (for hypothetical situations, emotions, or making requests)
+        - If I were a king...
+    - Imperative (command, request, advice)
+        - Abide by the rules
+
+**ASPECT**
+
+- It refers to the timing of the verb. 
+- All verbs have both tense and aspect.
+- Verbal aspect consists of simple, progressive, perfect, or perfect progressive, where each refers to a different fabric of time.
+
+
+**TENSE**
+
+- Tense indicates when the action expressed by a verb takes place. The three simple tenses are past, present, and future.
+- Different tenses take different verb forms, either by changing the word itself or by adding helping verbs.
+
+
+
+## English Vocbulary - 01
+
+**MORPHEMES**
+
+-  The smallest units of language **that have a meaning** or **a grammatical function** and **form words or parts of words** are called **morphemes**.
+-  Morphemes are meaningful units which constitute a word or as grammatical units are instrumental in construction of new words.
+
+**CLASSIFICATION OF MORPHEMES**
+
+- Morphemes
+    - Free Morphemes
+    - Bound Morphemes
+ 
+- Free Morphemes
+    - Lexical Morphemes
+    - Grammatical Morphemes
+
+- Bound Morphemes
+    - Bound Roots
+    - Afixes
+
+- Afixes
+    - Prefixes
+    - Infixes
+    - Suffixes
+
+**FREE MORPHEMES**
+
+Such morphemes occur alone as words and have a meaning or fulfill a grammatical function.
+
+- **Lexical Morphemes**
+    - They have meaning and usually refer to a thing, quality, state or action.
+    - They generally take the forms of nouns, verbs, adjectives and adverbs.
+- **Functional or Grammatical**
+    - They have little or no meaning on their own, but which show grammatical relationships in and between sentences.
+    - Example: Prepositions, pronouns, auxiliary verbs
+
+
+**BOUND MORPHEMES**
+
+Such morphemes never occur alone as words but as part of words. They must be attached to another morpheme in order to have a distinct meaning.
+
+Examples:
+- "-er" in worker
+- "re" in reappear
+- "un" in unhappy
+
+- **Bound Roots**
+    - They have lexical meaning when they are attached to other bound morphemes to form content words
+    - Examples:
+        - "-ceive" in receive
+        - "cran-" in cranberry
+    - Notice that bound roots can be prefixed or suffixed to other affixes.
+
+- **Affixes**
+    - They are usually marginally attached to words and which change the meaning or function of these words
+    - Examples:
+        - "-ment" in development.
+        - "en-" in enlarge
