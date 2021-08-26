@@ -1,0 +1,37 @@
+## What is a data structure?
+
+A `Data Strcuture` is a collection of values. `Algorithms` are the steps or processes we put into place to manipulate these collection of values.
+
+**Different Types of Data Structures (storage containers)**
+
+Each one of the containers are specifically designed for its own purpose.
+
+
+
+![image](https://user-images.githubusercontent.com/55041489/130899191-24515c56-d3b0-4b99-9c5e-22a04080b621.png)
+
+Data structures are the containers to organize data.
+
+**There are two aspects to a data structure:**
+
+1. How to build one
+2. How to use it
+
+
+## How computers store data?
+
+
+In order for a computer to run code, it needs to keep track of things like variables. These variables are stored in what we call Random Access Memory (RAM). On top of that, we also have Disk Storage where we store our files like music files and documents.
+
+RAM is temporary while Disk Storage is permanent.
+
+**Why do not we store everything in the Disk Storage?** It is because CPU can access RAM a lot of faster than Disk Storage.
+
+![image](https://user-images.githubusercontent.com/55041489/130901148-af70572f-e6d4-4ad1-a5bf-be60d78b070e.png)
+
+![image](https://user-images.githubusercontent.com/55041489/130901489-b21f03fc-9490-4244-bdad-b0b6c639e482.png)
+
+
+
+
+
