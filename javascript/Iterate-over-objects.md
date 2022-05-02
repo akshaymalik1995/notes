@@ -12,7 +12,7 @@ const obj = {
 
 // We will create a function
 function iterOverObject(object) {
-    for (const key of Object.keys(object)){
+    for (const key in object){
         
         const value = object[key]
         if (typeof(value) == 'object') {
