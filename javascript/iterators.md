@@ -35,3 +35,46 @@ for (const friend of friends) {
 }
 
 ```
+
+# Create range() with iterator
+
+```js
+// We will create a range() function using iterator object
+
+
+const range = (start, end, step=1) => {
+    start -= step
+    // range would become iterable if it returs an object...
+    // which has [Symbol.iterator] method
+    return {
+        [Symbol.iterator] : () => {
+            // [Symbol.iterator] must return an object with the next method
+            return {
+                // next must return an object with the value and done properties
+                next : () => {
+                    start += step
+                    return {
+                        value : start,
+                        done : start > end
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+// You can destructure only an iterable object
+let result = [...range(1, 9, 3)]
+console.log(result)
+```
+
+
+
+
+
+
+
+
+
