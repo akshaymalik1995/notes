@@ -70,6 +70,27 @@ let result = [...range(1, 9, 3)]
 console.log(result)
 ```
 
+# Create range() with generator
+
+```js
+// Creating a range function using generator function
+
+// Add an asterisk before the name of the function to change the function into a generator
+function *range(start, stop, step = 1) {
+    for(let i = start; i <= stop; i += step) {
+        yield i
+    }
+}
+
+const iterator = range(1, 9)
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 2, done: false }
+console.log(iterator.next()) // { value: 3, done: false }
+console.log(iterator.next().value) // 4
+console.log(iterator.next().value) // 5
+
+console.log([...iterator]) // [6, 7, 8, 9]
+```
 
 
 
