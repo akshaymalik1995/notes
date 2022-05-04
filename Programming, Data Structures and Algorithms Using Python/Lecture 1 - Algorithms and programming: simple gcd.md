@@ -10,7 +10,7 @@
 
 
 ## Our Focus
-- ALgorithm that manipulate information
+- Algorithm that manipulate information
   - Compute numerical functions - $`f(x, y) = x^y`$
   - Reorganize data - arrange in ascending order
   - Optimization - find the shortest route
