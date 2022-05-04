@@ -1,0 +1,8 @@
+- Algorithm: how to systematicall perform a task
+- Write down a sequence of tasks
+  - "Recipe", or program
+- Programming language describes the steps
+  - What is a step? Degrees of detail
+  - "Arrange the chairs" vs "Make 8 rows with 10 chairs in each row"
+  - Different level of details are required to be given in different problems.
+  - $`f(x, y) = x^y`$
