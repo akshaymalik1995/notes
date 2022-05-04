@@ -1,4 +1,4 @@
-## what is an algorithm?
+## What is an algorithm?
 
 - Algorithm: how to systematicall perform a task
 - Write down a sequence of tasks
