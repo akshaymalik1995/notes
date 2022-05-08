@@ -1,6 +1,6 @@
 ## What is an algorithm?
 
-- Algorithm: how to systematicall perform a task
+- Algorithm: how to systematically perform a task
 - Write down a sequence of tasks
   - "Recipe", or program
 - Programming language describes the steps
@@ -22,7 +22,7 @@
 
 - gcd(m , n)
   - Largest `k` such that `k` divides `m` and `k` divides `n`
-- 1 divides every number'
+- 1 divides every number
 - Atleast one common divisor for every `m` and `n`
 
 ## Computing gcd(m , n)
@@ -32,7 +32,7 @@
 - Is this a valid algorithm?
   - Finite represenation of the "recipe"
   - Terminates after a finite number of steps
--  Factors of `m` must be betweeb 1 and `m`
+-  Factors of `m` must be between 1 and `m`
   - Test each number in the range
   - If it divides `m` without a remainder, add it to the list of factors
 
