@@ -6,6 +6,11 @@ For now, we’re in what I’ve called the Web layer, handling only web requests
 - The FastAPI framework: `pip install fastapi`
 - The Uvicorn web server: `pip install uvicorn`
 
+We can also install all the packages associated with the development of a FastAPI application using the following command:
+```py
+pip install fastapi[all]
+ ```
+
 **Example 3-1 (hello.py)**
 ```py
 from fastapi import FastAPI
