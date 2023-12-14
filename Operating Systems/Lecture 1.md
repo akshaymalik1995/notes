@@ -1,112 +1,37 @@
 Welcome to operating systems lecture 1.
 
-This is an introductory lecture and we will basically in this course discuss about operating
+This is an introductory lecture and we will basically in this course discuss about operating systems and how they work and what are the issues when you design an operating system and implement one.
 
-systems and how they work and what are the issues when you design an operating system
+## Why to learn operating systems?**
 
-and implement one.
+**Firstly, Why is operating systems an interesting thing to learn?**
 
-Firstly, why is operating systems an interesting thing to learn?
+If you look at the history of computing, most of the landmark events in the history of computing have involved operating system either at the center or as one of the components of the event. So right from 1960s till 2014, operating systems have gone through series of design changes, implementation improvements and has always been an active area of research. So to give you a flavor, in the early days of computing, an operating system used to control large machines for example, the IBM mainframes and allowed people to run multiple processes and allow multiple users to share that large machine and get their work done.
 
-If you look at the history of computing, most of the landmark events in the history
+Today operating systems are present in your personal computers, they are present in your mobile phones, they are present in your cars and in all kinds of embedded devices. **There are lots of different open problems that operating system researchers have to face today.**
 
-of computing have involved operating system either at the center or as one of the components
+For example, we are rapidly seeing rapid changes in our hardware. We are going from high performance single core computers to computers which have lots of cores. Small machines like laptops have up to four cores or eight cores and larger machines can have up to 80 or 100 cores, it is not uncommon. And so researchers are constantly asking the question, what is the right operating system for this new kind of hardware and do our current operating systems really fit for these kind of new devices?
 
-of the event.
+Similarly, we are seeing advent of new kinds of devices which need operating systems like phones. Will the operating system that runs on your desktop be the ideal operating system for your phone or something better is needed?
 
-So right from 1960s till 2014, operating systems have gone through series of design changes,
-
-implementation improvements and has always been an active area of research.
-
-So to give you a flavor, in the early days of computing, an operating system used to
-
-control large machines for example, the IBM mainframes and allowed people to run multiple
-
-processes and allow multiple users to share that large machine and get their work done.
-
-Today operating systems are present in your personal computers, they are present in your
-
-mobile phones, they are present in your cars and in all kinds of embedded devices.
-
-There are lots of different open problems that operating system researchers have to
-
-face today.
-
-For example, we are rapidly seeing rapid changes in our hardware.
-
-We are going from high performance single core computers to computers which have lots
-
-of cores.
-
-Small machines like laptops have up to four cores or eight cores and larger machines can
-
-have up to 80 or 100 cores, it is not uncommon.
-
-And so researchers are constantly asking the question, what is the right operating system
-
-for this new kind of hardware and do our current operating systems really fit for these kind
-
-of new devices?
-
-Similarly, we are seeing advent of new kinds of devices which need operating systems like
-
-phones.
-
-Will the operating system that runs on your desktop be the ideal operating system for
-
-your phone or something better is needed?
-
-Then there are reliability issues.
-
-The operating system that runs inside a space mission, let's say the Mars mission or something
-
-has to be very, very reliable, definitely much more reliable than your PC desktop operating
-
-system.
-
-And so reliability is an operating system issue and it is a constant effort of researchers
-
-to ensure that operating systems do not have bugs or have ways to prove that the operating
-
-systems do not have bugs.
+Then there are reliability issues. The operating system that runs inside a space mission, let's say the Mars mission or something has to be very, very reliable, definitely much more reliable than your PC desktop operating system. And so reliability is an operating system issue and it is a constant effort of researchers to ensure that operating systems do not have bugs or have ways to prove that the operating systems do not have bugs.
 
 So all these are also research issues.
 
-Performance is definitely an operating system issue.
+**Performance is definitely an operating system issue.** I want to write an application and the application is going to run on a certain set of hardware which includes perhaps multiple processors, each having multiple CPU cores and having memory, disk, perhaps accelerator devices like the GPUs, the graphics processing units, etc. **And how can the operating system allow applications to use all this hardware in the most efficient way?**
 
-I want to write an application and the application is going to run on a certain set of hardware
+And all these are basically very, very interesting software engineering, software design and in particular operating system design problems.
 
-which includes perhaps multiple processors, each having multiple CPU cores and having
+## What is an operating system?
 
-memory, disk, perhaps accelerator devices like the GP GPUs, the graphics processing units,
+Let's understand what an operating system really is. We're going to try to understand this by looking at the history of operating systems.
 
-etc.
-
-And how can the operating system allow applications to use all this hardware in the most efficient
-
-way?
-
-And all these are basically very, very interesting software engineering, software design and
-
-in particular operating system design problems.
-
-So let's understand what an operating system really is.
-
-So and we're going to try to understand this by looking at the history of operating systems.
-
-So the first operating system was perhaps not designed, not very ambitious in its goals.
-
-The goal of an operating system was to allow a program to run.
-
-And so in some sense, operating system is the lowest layer of hardware, software that
-
-sits on top of hardware.
-
-And so the first operating system would just export a certain set of libraries that will
-
-allow an application to use this hardware.
+The first operating system was perhaps not designed, not very ambitious in its goals. **The goal of an operating system was to allow a program to run.** And so in some sense, **operating system is the lowest layer of software that sits on top of hardware.** And so the first operating system would just export a certain set of libraries that will allow an application to use this hardware.
 
 So the picture would perhaps look something like this.
+
+![image](https://github.com/akshaymalik1995/notes/assets/55041489/0465691c-f516-4f03-b7b5-88513cbd3c7d)
+
 
 You have, let's say, if I draw the whole system as this box and this is my hardware, then
 
