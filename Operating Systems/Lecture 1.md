@@ -33,501 +33,144 @@ So the picture would perhaps look something like this.
 ![image](https://github.com/akshaymalik1995/notes/assets/55041489/0465691c-f516-4f03-b7b5-88513cbd3c7d)
 
 
-You have, let's say, if I draw the whole system as this box and this is my hardware, then
+You have, let's say, if I draw the whole system as this box and this is my hardware, then the operating system is basically a bunch of device drivers and the application is running on top of this operating system and making calls into the operating systems to access the hardware. So the application runs on top of hardware, but for some operations it can ask the operating system to do it. And so different applications need to be written for this operating system in this way.
 
-the operating system is basically a bunch of device drivers and the application is running
-
-on top of this operating system and making calls into the operating systems to access
-
-the hardware.
-
-So the application runs on top of hardware, but for some operations it can ask the operating
-
-system to do it.
-
-And so different applications need to be written for this operating system in this way.
-
-So I have that in this picture.
-
-I am only drawing one application running at one time.
-
-So there's only one application that's running at any time on this operating system.
-
-And so this is a uniprocessor operating system, uniprocessing operating system.
-
-And so only one application can run at any time.
-
-And the operating system is just a collection of libraries which is allowing the application
-
-to access the hardware.
+Notice that in this picture, I am only drawing one application running at one time. So there's only one application that's running at any time on this operating system.
+And so this is a **uniprocessing operating system**. And so only one application can run at any time. **And the operating system is just a collection of libraries which is allowing the application to access the hardware.**
 
 All right.
 
-Let's take a step back and let's also understand how a computer system should really get organized.
-
-So one way to organize an operating computer system or a software system is to just write
-
-all your software as one big program.
-
-So let's imagine a world where your computer, the hardware is still the same, which basically
-
+**Let's take a step back and let's also understand how a computer system should really get organized.** So one way to organize an operating computer system or a software system is to just write all your software as one big program. So let's imagine a world where your computer, the hardware is still the same, which basically
 means there's a processor, there's memory, there's disk, et cetera, and they're all
+interconnected just the way they are today. But the software was indeed written in one monolithic style. So there's one large program that's going to do all your things for you. So for example, this program contains the logic to boot your computer from power off state to something which is usable. It contains all the logic to implement your editor, your shell, your GUI, the graphics, a window manager, your browser, web clients, web servers, and all this. So this program could be one large program that has all these things built into it.
 
-interconnected just the way they are today.
-
-But the software was indeed written in one monolithic style.
-
-So there's one large program that's going to do all your things for you.
-
-So for example, this program contains the logic to boot your computer from power of
-
-state to something which is usable.
-
-It contains all the logic to implement your editor, your shell, your GUI, the graphics,
-
-a window manager, your browser, web clients, web servers, and all this.
-
-So this program could be one large program that has all these things built into it.
-
-And so this program would probably contain one large case statement which says, if the
-
-user does this, then go here.
-
-If he presses a button here, then go there.
-
-If he types this command, then go jump there, and so on.
-
-So you can imagine that all your software on your computer can be organized as one big
-
-program that has all these things built into it.
+And so this program would probably contain one large case statement which says, if the user does this, then go here. If he presses a button here, then go there. If he types this command, then go jump there, and so on. So you can imagine that all your software on your computer can be organized as one big program that has all these things built into it.
 
 It's possible.
 
-But it's not very practical because completely different pieces of logic, an MP3 encoder has
+But it's not very practical because completely different pieces of logic, an MP3 encoder has nothing to do with the web server, have to be part of the same program, and the developers of these two different logics have to now talk to each other so that they are compatible with each other and can fit inside the same program.
 
-nothing to do with the web server, have to be part of the same program, and the developers
-
-of these two different logics have to now talk to each other so that they are compatible
-
-with each other and can fit inside the same program.
-
-So if there's an update to one part of the program, it basically means updating the entire
-
-program.
+So if there's an update to one part of the program, it basically means updating the entire program.
 
 Moreover, there are trust issues.
 
-What if I want to implement a web server, but I also know that I'm sharing this, I'll
+What if I want to implement a web server, but I also know that I'm sharing this, I'll be a part of this large program that also runs the MP3 encoder, but I don't trust the developer of the MP3 encoder because perhaps I don't trust his program because perhaps I know that his program may have bugs, or I just don't trust the developer. Maybe he may want to do malicious things to me.
 
-be a part of this large program that also runs the MP3 encoder, but I don't trust the
+So all these things are completely not possible in this model where you have one large program. And of course, it is also a software engineering nightmare because if you have one large program that's all these things, how is it possible to maintain this over a long period of time?
 
-developer of the MP3 encoder because perhaps I don't trust his program because perhaps
+So in theory, there could be an operating system that just implements all the functionality inside it as one large program and do things. But that's not going to be very practical.
 
-I know that his program may have bugs, or I just don't trust the developer.
+**So typically what operating systems do is expose an interface which allows applications to run on top of the operating system. And these applications can be implemented independently.**
 
-Basically that means that I don't trust him, I don't want to trust him.
+**So one application could be the MP3 encoder, for example, and the other application could be the web server. And these applications can run, can be implemented independently.**
 
-Maybe he may want to do malicious things to me.
+And at one time, let's say one application or multiple applications can run together. They all rely on the same interface that the operating system provides.
+And so these applications can run on this operating system as long as they obey the interface. These interfaces, in the picture shown above, these interfaces happen to be the device drivers.
 
-So all these things are completely not possible in this model where you have one large program.
+**Multiprocessing operating system**
 
-And of course, it is also a software engineering nightmare because if you have one large program
+![image](https://github.com/akshaymalik1995/notes/assets/55041489/d768e0c9-7b5d-48e9-b4be-e7f4e2a30adc)
 
-that's all these things, how is it possible to maintain this over a long period of time?
+In yet another kind of interface the operating system exposes certain interfaces and allows multiple applications to coexist at the same time. This is a multiprocessing operating system. So for example, this application could be a browser and this particular application could be, let's say, an MP3 encoder or any other such applications. And now the developers of these two applications don't need to trust each other. They also don't need to coordinate with each other. As long as they meet the specification of the operating system, they can run together
+at the same time without having to worry about each other. 
 
-So in theory, there could be an operating system that just implements all the functionality
+So this kind of an architecture is much better from a software engineering point of view. It's also much better from a security point of view, modularity, and so on. And also performance.
 
-inside it as one large program and do things.
+## Operating System Interface
 
-But that's not going to be very practical.
+**So let's understand what are these interfaces?** What should these interfaces look like? And that, itself, it turns out, is a non-trivial problem. So what should the operating system interface be?
 
-So typically what operating systems do is expose an interface which allows applications
+And let's again trace back to history. So one of the first operating systems was **Multix** that was coming out of Bell Labs. And one of the successors of Multix was Unix. So there was a system called Unix, developed by Ken Thompson, who won Turing award for his work on Unix. And other people involved in this work were Dennis Ritchie and others.
 
-to run on top of the operating system.
+**So what was Unix?**
 
-And these applications can be implemented independently.
+Well, the first version of Unix, or the early versions of Unix, looked something like this. They said, okay, I want to be able to run multiple processes on my system.
 
-So one application could be the MP3 encoder, for example, and the other application could
+And what should the operating system provide as a minimal sort of interface? So they started with first thinking about, firstly, what are the hardware components? Well, the hardware components are, there's a processor, which we call the CPU. There's memory, which is RAM, right? And then there's disk. Disk has a semantics that its contents are preserved across power reboots. Also, the disk needs to be shared across multiple processes, right? So one process may want to access file A, and another process may want to access file B. They may be running at different times, but the files A and B need to coexist on the disk.
 
-be the web server.
+On the other hand, at that time, memory could be assumed to be exclusive. So you could assume that if process A is running, then only process A is using the memory, and nobody else is using that memory.
 
-And these applications can run, can be implemented independently.
+Notice that for the disk, that's not true, right? For the disk, at the same time, it's important that all the contents of all the different processes, even if the process is not using them, exist.
 
-And at one time, let's say one application or multiple applications can run together.
+But for memory, whose contents are volatile, which means they don't persist across power reboots, it's possible for, so you can, at that time, they assumed that a process basically has exclusive access to all memory, right?
 
-They all rely on the same interface that the operating system provides.
-
-And so these applications can run on this operating system as long as they obey the interface.
-
-So these interfaces, in this particular picture, these interfaces happen to be the device drivers.
-
-In yet another kind of interface, you may want that let's say this is my hardware and
-
-this is my operating system.
-
-The operating system exposes certain interfaces and allows multiple applications to coexist
-
-at the same time.
-
-This is a multiprocessing operating system.
-
-So for example, this application could be a browser and this particular application
-
-could be, let's say, an MP3 encoder or any other such applications.
-
-And now the developers of these two applications don't need to trust each other.
-
-They also don't need to coordinate with each other.
-
-As long as they meet the specification of the operating system, they can run together
-
-at the same time without having to worry about each other.
-
-So this kind of an architecture is much better from a software engineering point of view.
-
-It's also much better from a security point of view, modularity, and so on.
-
-And also performance.
-
-So let's understand what are these interfaces?
-
-What should these interfaces look like?
-
-And that, itself, it turns out, is a non-trivial problem.
-
-So what should the operating system interface be?
-
-And let's again trace back to history.
-
-So one of the first operating systems was Multix that was coming out of Bell Labs.
-
-And one of the successors of Multix was Unix.
-
-So there was a system called Unix, developed by Ken Thompson,
-
-who was one of the touring award for his work on Unix.
-
-And other people involved in this work were Dennis Ritchie and others.
-
-So what was Unix?
-
-Well, the first version of Unix, or the early versions of Unix,
-
-looked something like this.
-
-They said, okay, I want to be able to run multiple processes on my system.
-
-And what should the operating system be provide as a minimal sort of interface?
-
-So they started with first thinking about, firstly, what are the hardware components?
-
-Well, the hardware components are, there's a processor, which we call the CPU.
-
-There's memory, which is RAM, right?
-
-And then there's disk.
-
-Disk has a semantics that its contents are preserved across power reboots.
-
-Also, the disk needs to be shared across multiple processes, right?
-
-So one process may want to access file A, and another process may want to file access file B.
-
-They may be running at different times, but the files A and B need to coexist on the disk.
-
-On the other hand, at that time, memory could be assumed to be exclusive.
-
-So you could assume that if process A is running, then only process A is using the memory,
-
-and nobody else is using that memory.
-
-Notice that for the disk, that's not true, right?
-
-For the disk, at the same time, it's important that all the contents of all the different processes,
-
-even if the process is not using them, exist.
-
-But for memory, whose contents are volatile, which means they don't
-
-persist across power reboots, it's possible for, so you can, at that time,
-
-they assumed that a process basically has exclusive access to all memory, right?
-
-Of course, today, we also don't do that.
-
-We basically allow the memory to get shared across multiple processes at the same time.
+Of course, today, we also don't do that. We basically allow the memory to get shared across multiple processes at the same time.
 
 But let's first understand how initially the UNIX interfaces look like.
 
 So the other thing that was important was, one important program that was needed was
-
 an interactive shell, right?
 
-What is an interactive shell?
+**What is an interactive shell?**
 
-An interactive shell will give you a command prompt.
+An interactive shell will give you a command prompt. You will type in your command, and depending on the command, some program will get to run, right? When that program finishes, you will come back to the interactive shell. And this loop, and this mechanism will continue forever, right? That was the minimum that a usable computer system should have, okay?
 
-You will type in your command, and depending on the command, some program will get to run,
-
-right?
-
-When that program finishes, you will come back to the interactive shell.
-
-And this loop, and this mechanism will continue forever, right?
-
-That was the minimum that a usable computer system should have, okay?
-
-So there are couple of things that are most very important.
-
-Firstly, there should have been a file system, right?
-
-So the early developers of UNIX said, okay, there needs to be a file system.
-
-A file system is an on-disk data structure and some kind of interface to access this
-
-on-disk data structure, right?
+So there are couple of things that are most very important. Firstly, there should have been a file system, right? So the early developers of UNIX said, okay, there needs to be a file system. A file system is an on-disk data structure and some kind of interface to access this on-disk data structure, right?
 
 So let's say, let me draw this disk, right?
 
-And you know, this disk has some contents, and a process that runs should be able to,
 
-so there is an operating system that sits between the application and the disk.
+![image](https://github.com/akshaymalik1995/notes/assets/55041489/15556a3e-c450-4bf1-8b59-6f2efc637c13)
 
-And the application is going to make some request to the operating system, and the operating
+And you know, this disk has some contents, and a process that runs should be able to, so there is an operating system that sits between the application and the disk.
+And the application is going to make some request to the operating system, and the operating system is going to translate those requests to the disk. And this translation layer was also called the file system, okay? And so it is clear that, you know, any operating system needs to have a file system, okay?
 
-system is going to translate those requests to this request and then serve the application
+So well, the file system in early UNIX looked quite similar to what we have today, which basically means that files, there was a notion of files which were nothing but streams of characters, all right? And there were a notion of file names, right?
+And a process could say, I want to access file name A at offset B, and so the operating system will translate the file name into a disk offset and add offset B to it and give you the contents of that particular file.
 
-using those tables.
-
-And this translation layer was also called the file system, okay?
-
-And so it is clear that, you know, any operating system needs to have a file system, okay?
-
-So well, the file system in early UNIX looked quite similar to what we have today, which
-
-basically means that files, there was a notion of files which were nothing but streams of
-
-characters, all right?
-
-And there were a notion of file names, right?
-
-And a process could say, I want to access file name A at offset B, and so the operating
-
-system will translate the file name into a disk offset and add offset B to it and give
-
-you the contents of that particular file.
-
-Also, you know, for better manageability, the earlier file system also had the notion
-
-of directories, which basically meant that the files, the file names, the file system
-
-or the namespace of the data structure was organized in hierarchical manner, which basically
-
-means that file names were basically had a full path name associated with it, basically
-
-meant where do you go from and so on, which included starting from the immediate parent
-
-directory to its parent to its parent till you reach the root and so on, okay?
+Also, you know, for better manageability, the earlier file system also had the notion of directories, which basically meant that the files, the file names, the file system or the namespace of the data structure was organized in hierarchical manner, which basically means that file names were basically had a full path name associated with it, basically meant where do you go from and so on, which included starting from the immediate parent directory to its parent to its parent till you reach the root and so on, okay?
 
 So that's one thing that UNIX had to have.
 
-And the way they did this was basically using an interface which said you open a file, which
+And the way they did this was basically using an interface which said you open a file, which basically means that, you know, I can say I want to open a file foo, then I basically can now use, so when I open a file, I could, let's say, open file name and this would give me what is called a handle or a file descriptor, which I am calling FD. Then I could read on the file descriptor. I could say I want to read in this file and you know, I want to read from this file, which I have opened previously, into a character array buff, 100 bytes, let's say. That basically means that I want to read 100 bytes from this file and store those contents into buff. So or I could say I want to write to this file 100 characters from buff, right? So read basically says read from file and put it into this character array and write means read from this character array and write to this file. 
 
-basically means that, you know, I can say I want to open a file foo, then I basically
+By the way, what is buff? Buff is a pointer in memory.
 
-can now use, so when I open a file, I could, let's say, open file name and this would
+So if I look at it again, my hardware looks something like this. I have a CPU on which my instructions run, memory and disk. So the CPU is going to run this instruction, which will call this function called read. Buff will be somewhere here (inside the Memory) and it will have, let's say, 100 characters in it and the file foo will be somewhere here (inside the Disk) and CPU could execute this command called read or write to transfer contents from memory to disk and from disk to memory using these commands. 
 
-give me what is called a handle or a file descriptor, which I am calling FD.
 
-Then I could read on the file descriptor. I could say I want to read in this file and
+![image](https://github.com/akshaymalik1995/notes/assets/55041489/3773fdbb-ec3a-4b9c-b678-3be1e1a405bc)
 
-you know, I want to read from this file, which I have opened previously, into a character
 
-array buff, 100 bytes, let's say. That basically means that I want to read 100 bytes from this
+Notice that the application does not need to worry about which disk it is or how do I access the disk, etcetera. All those things are abstracted away from by the operating system. The operating system knows what disk it is, how to run that disk,
+how to write to that disk, etcetera and the interface that the operating system provided or the Unix provided was this `read` and `write` calls that the application could make to read or write from the disk.
 
-file and store those contents into buff. So or I could say I want to write to this file
+That is one thing. The other abstraction that they had was that of a shell. So they said, because the shell or the interactive shell has to be such an important part of the operating system, the shell was implemented inside the kernel. 
 
-100 characters from buff, right? So read basically says read from file and put it into
+So let's say this is the operating system OS and the operating system is also often called the operating system kernel. So I am going to use these words kernel and
+operating system interchangeably and let's say this is the hardware once again and one part of the operating system would implement a program called shell. And let's see what the shell does. The shell basically gives you a command prompt. Let's say the command prompt is dollar and then you type a command, let's say you type a command `browser`. So what the shell is going to do is it is going to check, treat this command as a file name. **It is going to search for this file name in the current directory where the shell is running and if it finds the file name, then it is going to treat that file as an executable program and it is going to run it.**
 
-this character array and write means read from this character array and write to this
 
-file. By the way, what is buff? Buff is a pointer in memory.
+![image](https://github.com/akshaymalik1995/notes/assets/55041489/2ddf88bb-7ea4-4a5b-b608-9b4b0a361ac5)
 
-So if I look at it again, my hardware looks something like this. I have a CPU on which
 
-my instructions run memory and desk. So the CPU is going to run this instruction, which
+So let's say a `browser` was a file that existed in the current directory on in which the shell is running, then that file will get loaded as an application and control will get transferred to the browser. 
 
-will basically implement, which will basically make this system, which will call this function
+So notice that basically the operating system is providing interfaces for you to run different programs and allowing different programs to coexist simultaneously on the disk. At this point we are assuming that only one program is present in memory at any time. And this is a special program called shell inside the operating system or the operating system kernel and this shell is going to take a command from the user which basically means it is going to read from some port, let's say the keyboard. It is going to read from the keyboard, interpret that command as a file name. It searches for the file name in the disk in the file system really and if it finds a file with that name then it loads that file name. So that file basically should contain some data some instructions that need to get executed. So those instructions get loaded into memory and control is transferred to that particular file program. That program is now going to run all by itself. So it is as though nothing else is present in memory, it is just that program that is present and so that program is going to run all by itself and when it is running it may make more open calls to open more files, it may make more read calls or write calls to you know to read or write files and at some point it may want to say I am done, I want to exit. 
 
-called read. Buff will be somewhere here and it will have, let's say, 100 characters
+So that was how was exit implemented in UNIX. So there needs to be something called exit in early UNIX. So how do you exit? Well at that time, so in the early version of UNIX, exit was basically implemented by just returning back to the shell. So if  there was another function that the operating system kernel provided which was exit and what that will do is it will remove this from memory and jump back to the shell to take the next command. So you have to print the next dollar sign and here you are and you can now print your next command. 
 
-in it and the file foo will be somewhere here and CPU could execute this command called
+There were other things that the operating system had to be careful about. 
 
-read or write to transfer contents from memory to disk and from disk to memory using these
+Firstly, if the browser had opened certain files then when you return back to the shell, the first thing the shell would do is close all the open files so that if the new program gets to run he can open more files and so on. 
 
-written write commands. So I could say, I want to write this command, I want to write
+So this was the simplistic model of the UNIX operating system in its early days. And
+basically what we have seen is there are few things that the operating system was providing us. Number one, it allowed us to start a new program, start slash load a new program and this it was being done using the special program called shell inside the operating system. It allowed us to open, read and write files and it allows us to exit. So these are some of the functionalities of OS that applications uses and we have seen how they are using it. 
 
-this command. Notice that the application does not need to worry about which disk it
+So notice that in doing this, in doing this operating system design, the designer has just basically carefully decided that some part of functionality needs to be part of the operating system kernel. For example, the shell program is part of the operating system kernel and the device drivers are part of the operating system kernel and some part of the logic does not need to be part of the operating system kernel and it should be present as application logic in executable files. That can be executed by the user at will. Even very soon people realized that you know even the shell does not need to be part of the operating system kernel. One of the important things that go into an operating system design is to make the interface as small as possible and as usable as possible and yet as powerful. 
 
-is or how do I access the disk, etcetera. All those things are abstracted away from
+So today the operating system kernel does not provide the shell command. Instead the shell itself runs as a separate application. And the shell has ways to tell the operating system to start another application. So for example, the shell could tell the operating system to suspend itself and start a browser just like before except that this time the shell is not part of the operating system. The shell itself is running as an application and in order to do that it is important that you have interfaces that allow an application to be able to create another application and jump to it. 
 
-by the operating system. The operating system knows what disk it is, how to run that disk,
+So these functions that the operating system provides, the functions that basically form the interface of the operating system, are called **system calls**.
 
-how to write to that disk, etcetera and the interface that the operating system provided
+Some examples of **system calls** are calls to allow you to start a new program or to read or write to a file on the disk or to exit and there are more system calls that we are going to look at as we study this course further. 
 
-or the Unix provided was this read and write calls that the application could make to read
+So let us continue with this particular model where we said that the shell itself is written as an application and the operating system provides certain interfaces to
+allow the shell to start another program. 
 
-or write from the disk. That is one thing. The other abstraction that they had was that
+So what are these interfaces? So UNIX provides a system called `fork` and another system called called `exec`. These system calls are used to start a new program. Let us see how fork and exec are used. 
 
-of a shell. So they said, because the shell or the interactive shell has to be such an
-
-important part of the operating system, the shell was implemented inside the kernel. So
-
-let's say this is the operating system OS and I am going to, the operating system is
-
-also often called the operating system kernel. So I am going to use that words kernel and
-
-operating system interchangeably and let's say this is the hardware once again and one
-
-part of the operating system would implement a program called shell.
-
-And let's see what the shell does. The shell basically gives you a command prompt. Let's
-
-say the command prompt is dollar and then you type a command, let's say you type a command
-
-browser. So what the shell is going to do is it is going to check, treat this command
-
-as a file name. It is going to search for this file name in the current directory where
-
-the shell is running and if it finds the file name, then it is going to treat that file
-
-as an executable program and it is going to run it. So let's say a browser was a file
-
-that existed in the current directory on in which the shell is running, then that file
-
-will get loaded as an application and control will get transferred to the browser. So notice
-
-that basically the operating system is basically providing interfaces for you to run different
-
-programs and allowing different programs to coexist simultaneously on the disk. At this
-
-point we are assuming that only one program is present in memory at any time. And this
-
-is a special program called shell inside the operating system or the operating system
-
-kernel and this shell is going to take a command from the user which basically means it is
-
-going to read from some port, let's say the keyboard. It is going to read from the keyboard,
-
-interpret that command which basically means it is going to typically it will interpret
-
-the command as a file name. It searches for the file name in the disk in the file system
-
-really and if it finds a file with that name then it loads that file name. So that file
-
-basically should contain some data some instructions that need to get executed. So those instructions
-
-get loaded into memory and control is transferred to that particular file program. That program
-
-is now going to run all by itself. So it is as though nothing else is present in memory,
-
-it is just that program that is present and so that program is going to run all by itself
-
-and when it is running it may make more open calls to open more files, it may make more
-
-read calls or write calls to you know to read or write files and at some point it may want
-
-to say I am done, I want to exit. So what was how was exit implemented in UNIX? So there
-
-needs to be something called exit in early UNIX. So how do you exit? Well at that time,
-
-so in the early version of UNIX, exit was basically implemented by just returning back
-
-to the shell. So if the so there was another function that the operating system kernel
-
-provided which was exit and what that will do is it will remove this from memory and
-
-jump back to the shell to take the next command. So you have to print the next dollar sign
-
-and here you are and you can now print your next command. There were other things that
-
-the operating system had to be careful about. Firstly, if the browser had opened certain
-
-files then when you return back to the shell, the first thing the shell would do is close
-
-all the open files so that if the new program gets to run he can open more files and so
-
-on. So this was the simplistic model of the UNIX operating system in its early days. And
-
-basically what we have seen is there are few things that the operating system was providing
-
-us. Number one, it allowed us to start a new program, start slash load a new program and
-
-this it was being done using the special program called shell inside the operating system.
-
-It allowed us to open, read and write files and it allows us to exit. So some functionality
-
-of OS that applications use examples. These are example functionalities that the applications
-
-using and we have seen how they are using it. So notice that in doing this, in doing this
-
-operating system design, the designer has just basically carefully decided that some
-
-part of functionality needs to be part of the operating system kernel. For example,
-
-the shell program is part of the operating system kernel and the device drivers are part
-
-of the operating system kernel and some part of the logic does not need to be part of the
-
-operating system kernel and it should be present as application logic in executable files.
-
-That can be executed by the user at will. Even very soon people realized that you know
-
-even the shell does not need to be part of the operating system kernel. One of the important
-
-things that go into an operating system design is to make the interface as small as possible
-
-and as usable as possible and yet as powerful. So today the operating system kernel does not
-
-provide the shell command. Instead the shell itself runs as a separate application. And
-
-the shell has ways to tell the operating system to start another application. So for example,
-
-the shell could tell the operating system to suspend itself and start a browser just
-
-like before except that this time the shell is not part of the operating system. The shell
-
-itself is running as an application and in order to do that it is important that you
-
-have interfaces that allow an application to be able to create another application and
-
-jump to it. So these functions that the operating system provides these are you know, you know
-
-these are these functions basically form the interface of the operating system and let
-
-us call these the kernel functions are called system calls.
-
-There is a special names to these particular functions that the operating system kernel
-
-provides to applications to be able to do things that it wants. And some examples of system
-
-calls are calls to allow you to start a new program or to read or write to a file on the
-
-disk or to exit right and there are more system calls that we are going to look at as we study
-
-this course for. So let us continue with this particular model where we said that the shell
-
-itself is written as an application and the operating system provides certain interfaces to
-
-allow the shell to start another program. So what are these interfaces? So UNIX provides a system
-
-called called Focke and another system called called exec. So you know you can see that the
-
-system call called Focke and another system call called exec. So and these system calls
-
-are used to start a new program. Let us see how Focke and exec are used. So first let us
-
-talk about exec right. So let us say I am an operating system and an application is running here
+So first let us talk about exec right. So let us say I am an operating system and an application is running here
 
 let us say it is a shell. The shell can make a system call called exec. So exec takes an argument
 
